@@ -5,43 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" 
+    rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" 
+    crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="calculator">
-        <div id="display">
-            <p id="output">80081355</p>
+    <header class=".header">
+        <h1 class="title"></h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="display">
+                <p class="inputs">100 + 201 =</p>
+                <p class="results">301</p>
+            </div>
+            <div class="buttons">
+                <button class="btn-option">AC</button>
+                <button class="btn-option">±</button>
+                <button class="btn-option">%</button>
+                <button class="btn-operator">÷</button>
+                <button class="btn-number">7</button>
+                <button class="btn-number">8</button>
+                <button class="btn-number">9</button>
+                <button class="btn-operator">*</button>
+                <button class="btn-number">4</button>
+                <button class="btn-number">5</button>
+                <button class="btn-number">6</button>
+                <button class="btn-operator">-</button>
+                <button class="btn-number">1</button>
+                <button class="btn-number">2</button>
+                <button class="btn-number">3</button>
+                <button class="btn-operator">+</button>
+                <button class="btn-number zero">0</button>
+                <button class="btn-option">.</button>
+                <button class="btn-equals">=</button>
+            </div>
         </div>
-        <div class="row">
-            <button id="AC" class="color1">AC</button>
-            <button id="+/-" class="color1">+/-</button>
-            <button id="%" class="color1">%</button>
-            <button id="/" class="color2">/</button>
-        </div>
-        <div class="row">
-            <button id="7">7</button>
-            <button id="8">8</button>
-            <button id="9">9</button>
-            <button id="*" class="color2">*</button>
-        </div>
-        <div class="row">
-            <button id="4">4</button>
-            <button id="5">5</button>
-            <button id="6">6</button>
-            <button id="-" class="color2">-</button>
-        </div>
-        <div class="row">
-            <button id="1">1</button>
-            <button id="2">2</button>
-            <button id="3">3</button>
-            <button id="+" class="color2">+</button>
-        </div>
-        <div class="row">
-            <button id="0">0</button>
-            <button id="float">.</button>
-            <button id="=" class="color2">=</button>
-        </div>
-    </div>
+    </main>
+    <footer class="footer">
+        <p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            aamidal
+        </p>
+        <a href="https://github.com/aamidal" target="_blank">
+          <i class="fab fa-github bounce"></i>
+        </a>
+    </footer>
     <script src="calculator.js"></script>
 </body>
 </html>

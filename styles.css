@@ -1,0 +1,166 @@
+:root {
+    /* Colors from Solarized
+     by Ethan Schoonover (https://ethanschoonover.com/solarized/) */
+    --base03:    #002b36;
+    --base02:    #073642;
+    --base01:    #586e75;
+    --base00:    #657b83;
+    --base0:     #839496;
+    --base1:     #93a1a1;
+    --base2:     #eee8d5;
+    --base3:     #fdf6e3;
+    --yellow:    #b58900;
+    --orange:    #cb4b16;
+    --red:       #dc322f;
+    --magenta:   #d33682;
+    --violet:    #6c71c4;
+    --blue:      #268bd2;
+    --cyan:      #2aa198;
+    --green:     #859900;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--base02);
+    color: var(--base0);
+    font-family: 'Teko', sans-serif;
+    margin-bottom: 100px;
+}
+
+/* HEADER */
+
+.header {
+    padding: 0px 0px;
+}
+  
+.title {
+    text-align: center;
+    font-size: 80px;
+}
+
+/* MAIN */
+
+.container {
+    background: var(--base03);
+    width: max-content;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 3px 5px 0.5px var(--base01);
+}
+
+.display{
+    width: 100%;
+    background-color: var(--base02);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: -1px -1px 0.5px var(--base01);
+}
+
+.inputs {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 30px;
+    padding: 0;
+    display: flex;
+    color: var(--base00);
+    justify-content: flex-end;
+}
+
+.results {
+    font-size: 58px;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+button{
+    flex: 1 25%;
+    padding: 15px;
+    font-size: 26px;
+    border-radius: 20px;
+    border: 5px solid var(--base03);
+    color: var(--base03)
+}
+
+button:hover{
+    background-color: var(--blue);
+    transition: 0.4s;
+}
+
+button:active{
+    background-color: var(--orange);
+    transition: 0s;
+}
+
+.buttons{
+    max-width: 400px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.btn-number {
+    background-color: var(--cyan)
+}
+
+.zero{
+    flex: 1 50%;
+}
+  
+.btn-operator {
+    background-color: var(--violet);
+}
+
+.btn-equals {
+    background-color: var(--magenta);
+}
+
+.btn-option {
+    background-color:var(--base2);
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--base1);
+  }
+  
+  .fa-github {
+    color: var(--cyan);
+    font-size: 24px;
+    animation: 0.5s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+  }
+  
+  .bounce:hover {
+    animation-name: bounce;
+    animation-timing-function: ease;
+  }
+
+  @keyframes bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
