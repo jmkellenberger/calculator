@@ -1,4 +1,4 @@
-const calculator = {name: 'john', age: 13}
+const calculator = {}
 
 function add(a, b) {
     return a+b;
