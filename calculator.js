@@ -1,3 +1,5 @@
+const calculator = {name: 'john', age: 13}
+
 function add(a, b) {
     return a+b;
 }
@@ -25,5 +27,11 @@ function operate(operand1, operator, operand2) {
             return multiply(operand1, operand2);
         case '/':
             return divide(operand1, operand2);
+    }
+}
+
+function clear() {
+    for (const key in calculator) {
+        delete calculator[key]
     }
 }
