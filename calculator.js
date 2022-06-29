@@ -1,4 +1,7 @@
-const calculator = {}
+const display = document.getElementById("results");
+
+
+const calc = {}
 
 function add(a, b) {
     return a+b;
@@ -31,7 +34,20 @@ function operate(operand1, operator, operand2) {
 }
 
 function clear() {
-    for (const key in calculator) {
-        delete calculator[key]
+    for (const key in calc) {
+        delete calc[key]
     }
+    updateDisplay();
 }
+
+function inputNum(key){
+    'display' in calc ? calc.display += `${key}`: calc.display = `${key}`;
+    updateDisplay();
+}
+
+function updateDisplay() {
+    'display' in calc ?
+    display.textContent = calc.display : display.textContent = "";
+}
+
+
