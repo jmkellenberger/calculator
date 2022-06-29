@@ -1,6 +1,6 @@
 const display = document.getElementById("results");
 const inputs = document.getElementById("inputs");
-
+const numBtns = [...document.getElementsByClassName('btn-number')];
 
 const calc = {}
 
@@ -34,7 +34,7 @@ function operate(operand1, operator, operand2) {
     }
 }
 
-function clear() {
+function clearAll() {
     for (const key in calc) {
         delete calc[key]
     }
@@ -42,16 +42,27 @@ function clear() {
 }
 
 function inputNum(key){
-    'display' in calc ? calc.display += `${key}`: calc.display = `${key}`;
+    'display' in calc ? 
+            calc.display += `${key}`: calc.display = `${key}`;
     updateDisplay();
+}
+
+function inputOperator(key) {
+}
+
+function convertNeg() {
+    if ('display' in calc) {
+        let i = calc.display;
+        calc.display =  i - (i * 2);
+        updateDisplay();
+    }
 }
 
 function updateDisplay() {
     'display' in calc ?
             display.textContent = calc.display : display.textContent = "";
-    if ('operator' in calc) inputs.textContent = `${calc.op1} ${calc.operator}`;
+    if ('operator' in calc) inputs.textContent = 
+            `${calc.op1} ${calc.operator}`;
     if ('op2' in calc) inputs.textContent = 
             `${calc.op1} ${calc.operator} ${calc.op2}`;
 }
-
-
