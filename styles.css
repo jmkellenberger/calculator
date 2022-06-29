@@ -90,17 +90,19 @@ button{
     font-size: 26px;
     border-radius: 20px;
     border: 5px solid var(--base03);
-    color: var(--base03)
+    color: var(--base03);
+    box-shadow: .5px 0.5px 0.5px var(--base01);
 }
 
 button:hover{
-    background-color: var(--blue);
-    transition: 0.4s;
+    background-color: var(--yellow);
+    transition: 0.3s;
 }
 
 button:active{
     background-color: var(--orange);
-    transition: 0s;
+    transition: 0.1s;
+    box-shadow: none;
 }
 
 .buttons{
@@ -118,11 +120,11 @@ button:active{
 }
   
 .btn-operator {
-    background-color: var(--violet);
+    background-color: var(--magenta);
 }
 
 .btn-equals {
-    background-color: var(--magenta);
+    background-color: var(--violet);
 }
 
 .btn-option {
