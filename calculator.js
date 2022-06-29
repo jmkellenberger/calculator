@@ -1,4 +1,5 @@
 const display = document.getElementById("results");
+const inputs = document.getElementById("inputs");
 
 
 const calc = {}
@@ -47,7 +48,10 @@ function inputNum(key){
 
 function updateDisplay() {
     'display' in calc ?
-    display.textContent = calc.display : display.textContent = "";
+            display.textContent = calc.display : display.textContent = "";
+    if ('operator' in calc) inputs.textContent = `${calc.op1} ${calc.operator}`;
+    if ('op2' in calc) inputs.textContent = 
+            `${calc.op1} ${calc.operator} ${calc.op2}`;
 }
 
 
