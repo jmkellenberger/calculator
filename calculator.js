@@ -1,9 +1,77 @@
-const display = document.getElementById("results");
-const inputs = document.getElementById("inputs");
-const numBtns = [...document.getElementsByClassName('btn-number')];
+const numBtns = document.querySelectorAll('[data-number]');
+const opBtns = document.querySelectorAll('[data-operator]');
+const clearBtn = document.getElementById('ac');
+const negBtn = document.getElementById('neg');
+const delBtn = document.getElementById('del');
+const equalsBtn = document.getElementById('=');
+const upperDisplay = document.getElementById('upper');
+const lowerDisplay = document.getElementById('lower');
 
-const calc = {}
+let currentOperand = '';
+let previousOperand = '';
+let operator = null;
+let resetDisplay = false;
+let lastOperand = null;
 
+delBtn.addEventListener('click', del);
+clearBtn.addEventListener('click', clear);
+negBtn.addEventListener('click', swapNeg);
+equalsBtn.addEventListener('click', compute)
+numBtns.forEach((button) => {
+    button.addEventListener('click', () => inputNum(button.textContent))
+})
+opBtns.forEach((button) =>
+    button.addEventListener('click', () => chooseOperation(button.id))
+)
+
+function inputNum(num) {
+    if (resetDisplay) storeOperand();
+    if (num === '.' && lowerDisplay.textContent.includes('.')) return;
+    currentOperand += num;
+    lowerDisplay.textContent = currentOperand;
+}
+
+function chooseOperation(operation) {
+    resetDisplay = true;
+    operator = operation;
+}
+
+function clear() {
+    previousOperand = '';
+    currentOperand = '';
+    operator = null;
+    resetDisplay = false;
+    lowerDisplay.textContent = '';
+    upperDisplay.textContent = '';
+}
+
+function updateDisplay() {
+    lowerDisplay.textContent = currentOperand;
+    if (previousOperand === '') return;
+    else upperDisplay.textContent = `${previousOperand} ${operator}`
+}
+function storeOperand() {
+    resetDisplay = false;
+    previousOperand = currentOperand;
+    currentOperand = '';
+    updateDisplay();
+}
+
+function swapNeg() {
+    if (currentOperand === '') return;
+    currentOperand -= (currentOperand * 2);
+    updateDisplay();
+}
+function compute() {
+    console.log(previousOperand);
+    console.log(operator);
+    console.log(currentOperand);
+    resetDisplay = true;
+    currentOperand = operate(previousOperand, operator, currentOperand);
+    updateDisplay();
+    upperDisplay.textContent = `${previousOperand} ${operator} ${lastOperand} =`
+
+}
 function add(a, b) {
     return a+b;
 }
@@ -17,52 +85,29 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) return '#DIV/0!';
+    if (b === 0) {
+        currentOperand = '';
+        previousOperand = '';
+        operator = null;
+        return '#DIV/0!'
+    };
     return a/b;
 }
 
-function operate(operand1, operator, operand2) {
-    switch(operator) {
+function operate(operand1, operation, operand2) {
+    if (operand1 === '' || operation === null || operand2 === '') return
+    a = Number(operand1);
+    b = Number(operand2);
+    lastOperand = b;
+    switch(operation) {
         case '+':
-            return add(operand1, operand2);
+            return add(a, b);
         case '-':
-            return subtract(operand1, operand2);
+            return subtract(a, b);
         case '*':
-            return multiply(operand1, operand2);
+            return multiply(a, b);
         case '/':
-            return divide(operand1, operand2);
+            return divide(a, b);
     }
-}
-
-function clearAll() {
-    for (const key in calc) {
-        delete calc[key]
-    }
-    updateDisplay();
-}
-
-function inputNum(key){
-    'display' in calc ? 
-            calc.display += `${key}`: calc.display = `${key}`;
-    updateDisplay();
-}
-
-function inputOperator(key) {
-}
-
-function convertNeg() {
-    if ('display' in calc) {
-        let i = calc.display;
-        calc.display =  i - (i * 2);
-        updateDisplay();
-    }
-}
-
-function updateDisplay() {
-    'display' in calc ?
-            display.textContent = calc.display : display.textContent = "";
-    if ('operator' in calc) inputs.textContent = 
-            `${calc.op1} ${calc.operator}`;
-    if ('op2' in calc) inputs.textContent = 
-            `${calc.op1} ${calc.operator} ${calc.op2}`;
+    
 }

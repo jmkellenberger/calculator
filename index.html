@@ -21,28 +21,28 @@
     <main>
         <div class="container">
             <div class="display">
-                <p id="inputs"></p>
-                <p id="results"></p>
+                <p id="upper"></p>
+                <p id="lower"></p>
             </div>
             <div class="buttons">
-                <button id="ac" class="btn-option" onclick="clearAll()">AC</button>
-                <button id="neg" class="btn-option" onclick="convertNeg()">±</button>
-                <button id="%" class="btn-option">%</button>
-                <button id="/" class="btn-operator">÷</button>
-                <button id="7" class="btn-number" onclick = "inputNum(this.id)">7</button>
-                <button id="8" class="btn-number" onclick = "inputNum(this.id)">8</button>
-                <button id="9" class="btn-number" onclick = "inputNum(this.id)">9</button>
-                <button id="*" class="btn-operator">*</button>
-                <button id="4" class="btn-number" onclick = "inputNum(this.id)">4</button>
-                <button id="5" class="btn-number" onclick = "inputNum(this.id)">5</button>
-                <button id="6" class="btn-number" onclick = "inputNum(this.id)">6</button>
-                <button id="-" class="btn-operator">-</button>
-                <button id="1" class="btn-number" onclick = "inputNum(this.id)">1</button>
-                <button id="2" class="btn-number" onclick = "inputNum(this.id)">2</button>
-                <button id="3" class="btn-number" onclick = "inputNum(this.id)">3</button>
-                <button id="+" class="btn-operator">+</button>
-                <button id="0" class="btn-number zero" onclick = "inputNum(this.id)">0</button>
-                <button id="." class="btn-option">.</button>
+                <button id="ac" class="btn-option">AC</button>
+                <button id="del" class="btn-option">DEL</button>
+                <button id="neg" class="btn-option">±</button>
+                <button data-operator id="/" class="btn-operator">÷</button>
+                <button data-number id="7" class="btn-number">7</button>
+                <button data-number id="8" class="btn-number">8</button>
+                <button data-number id="9" class="btn-number">9</button>
+                <button data-operator id="*" class="btn-operator">*</button>
+                <button data-number id="4" class="btn-number">4</button>
+                <button data-number id="5" class="btn-number">5</button>
+                <button data-number id="6" class="btn-number">6</button>
+                <button data-operator id="-" class="btn-operator">-</button>
+                <button data-number id="1" class="btn-number">1</button>
+                <button data-number id="2" class="btn-number">2</button>
+                <button data-number id="3" class="btn-number">3</button>
+                <button data-operator id="+" class="btn-operator">+</button>
+                <button data-number id="0" class="btn-number zero">0</button>
+                <button data-number id="." class="btn-option">.</button>
                 <button id="=" class="btn-equals">=</button>
             </div>
         </div>
