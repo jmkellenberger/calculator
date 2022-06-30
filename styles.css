@@ -18,13 +18,8 @@
     --cyan:      #2aa198;
     --green:     #859900;
 }
-* {
-    box-sizing: border-box;
-}
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background-color: var(--base02);
     color: var(--base0);
     font-family: 'Teko', sans-serif;
@@ -32,22 +27,15 @@ body {
 }
 
 /* HEADER */
-
-.header {
-    padding: 0px 0px;
-}
-  
-.title {
-    text-align: center;
-    font-size: 80px;
-}
-
 /* MAIN */
 
 .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
     background: var(--base03);
     width: max-content;
-    margin: auto;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 3px 5px 0.5px var(--base01);
@@ -84,16 +72,6 @@ body {
     justify-content: flex-end;
 }
 
-button{
-    flex: 1 25%;
-    padding: 15px;
-    font-size: 26px;
-    border-radius: 20px;
-    border: 5px solid var(--base03);
-    color: var(--base03);
-    box-shadow: .5px 0.5px 0.5px var(--base01);
-}
-
 button:hover{
     background-color: var(--yellow);
     transition: 0.3s;
@@ -109,6 +87,16 @@ button:active{
     max-width: 400px;
     display:flex;
     flex-wrap: wrap;
+}
+
+button{
+    flex: 1 0 90px;
+    padding: 15px;
+    font-size: 26px;
+    border-radius: 20px;
+    border: 5px solid var(--base03);
+    color: var(--base03);
+    box-shadow: .5px 0.5px 0.5px var(--base01);
 }
 
 .btn-number {
