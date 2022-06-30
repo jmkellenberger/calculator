@@ -24,13 +24,27 @@ opBtns.forEach((button) =>
     button.addEventListener('click', () => chooseOperation(button.id))
 )
 
+window.addEventListener('keydown', parseKey); 
+function parseKey(e) {
+    let operators = ['+', '-', '*', '/']
+    if ((e.key >= 0 && e.key < 10) || e.key === '.') inputNum(e.key);
+    else if (operators.includes(e.key)) chooseOperation(e.key);
+    else if (e.key === 'Backspace') del();
+    else if (e.key === 'Enter') compute();1234
+}
+    
+;1
 function inputNum(num) {
     if (resetDisplay) storeOperand();
     if (num === '.' && lowerDisplay.textContent.includes('.')) return;
     currentOperand += num;
     lowerDisplay.textContent = currentOperand;
 }
-
+function del() {
+    if (currentOperand = '') return;
+    currentOperand = currentOperand.slice(0, -1);
+    updateDisplay();
+}
 function chooseOperation(operation) {
     resetDisplay = true;
     operator = operation;
@@ -63,6 +77,7 @@ function swapNeg() {
     updateDisplay();
 }
 function compute() {
+    if (previousOperand === ''|| operator === null || currentOperand === '') return;
     console.log(previousOperand);
     console.log(operator);
     console.log(currentOperand);
@@ -73,31 +88,29 @@ function compute() {
 
 }
 function add(a, b) {
-    return a+b;
+    return round(a+b);
 }
 
 function subtract(a, b) {
-    return a-b;
+    return round(a-b);
 }
 
 function multiply(a, b) {
-    return a*b;
+    return round(a*b);
 }
 
 function divide(a, b) {
     if (b === 0) {
-        currentOperand = '';
-        previousOperand = '';
-        operator = null;
-        return '#DIV/0!'
+        clear();
+        lowerDisplay.textContent = '#DIV/0!';
     };
-    return a/b;
+    return round(a/b);
 }
 
 function operate(operand1, operation, operand2) {
     if (operand1 === '' || operation === null || operand2 === '') return
-    a = Number(operand1);
-    b = Number(operand2);
+    a = Number(operand1)
+    b = Number(operand2)
     lastOperand = b;
     switch(operation) {
         case '+':
@@ -108,6 +121,9 @@ function operate(operand1, operation, operand2) {
             return multiply(a, b);
         case '/':
             return divide(a, b);
-    }
-    
+    }   
+}
+
+function round(num) {
+    return Math.round(num * 1000)/1000
 }
