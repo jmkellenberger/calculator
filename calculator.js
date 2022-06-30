@@ -36,7 +36,7 @@ function parseKey(e) {
 ;1
 function inputNum(num) {
     if (resetDisplay) storeOperand();
-    if (num === '.' && lowerDisplay.textContent.includes('.')) return;
+    if ((num === '.' && lowerDisplay.textContent.includes('.')) || num === '0' && lowerDisplay.textContent === '0') return;
     currentOperand += num;
     lowerDisplay.textContent = currentOperand;
 }
