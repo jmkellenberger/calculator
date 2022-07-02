@@ -83,6 +83,12 @@ function compute() {
     console.log(currentOperand);
     resetDisplay = true;
     currentOperand = operate(previousOperand, operator, currentOperand);
+    if (currentOperand === Infinity) {
+        currentOperand = '';
+        upperDisplay.textContent = ''
+        lowerDisplay.textContent = "Bad! No divide by zero!!!";
+        return
+    }
     updateDisplay();
     upperDisplay.textContent = `${previousOperand} ${operator} ${lastOperand} =`
 
@@ -100,10 +106,6 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
-        clear();
-        lowerDisplay.textContent = '#DIV/0!';
-    };
     return round(a/b);
 }
 
